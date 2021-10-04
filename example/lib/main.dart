@@ -13,10 +13,9 @@ void main() {
 class FlutterStethoExample extends StatelessWidget {
   final http.Client client;
 
-  const FlutterStethoExample({Key? key, required this.client})
-      : super(key: key);
+  FlutterStethoExample({Key key, this.client}) : super(key: key);
 
-  void Function()? fetchImage() {
+  fetchImage() {
     client.get(
       Uri.parse(
           'https://flutter.dev/assets/404/dash_nest-c64796b59b65042a2b40fae5764c13b7477a592db79eaf04c86298dcb75b78ea.png'),
@@ -24,14 +23,14 @@ class FlutterStethoExample extends StatelessWidget {
     );
   }
 
-  void Function()? fetchJson() {
+  fetchJson() {
     client.get(
       Uri.parse('https://jsonplaceholder.typicode.com/posts/1'),
       headers: {'Authorization': 'token'},
     );
   }
 
-  void Function()? fetchError() {
+  fetchError() {
     client.get(Uri.parse('https://jsonplaceholder.typicode.com/postadsass/1'));
   }
 
@@ -40,31 +39,31 @@ class FlutterStethoExample extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Plugin example app'),
+          title: Text('Plugin example app'),
         ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: EdgeInsets.all(16.0),
                 child: ElevatedButton(
                   onPressed: fetchJson,
-                  child: const Text("Fetch json"),
+                  child: Text("Fetch json"),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: EdgeInsets.all(16.0),
                 child: ElevatedButton(
                   onPressed: fetchImage,
-                  child: const Text("Fetch image"),
+                  child: Text("Fetch image"),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: EdgeInsets.all(16.0),
                 child: ElevatedButton(
                   onPressed: fetchError,
-                  child: const Text("Fetch with Error"),
+                  child: Text("Fetch with Error"),
                 ),
               )
             ],
